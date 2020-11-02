@@ -1,0 +1,37 @@
+buildscript{
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}//플러그인 의존성 관리를 위한 설정
+// ext라는 키워드는 build.gradle에서 사용하는 전역변수를 설정한다는 의미
+// 여기서는 스트링부트버전 전역변수를 생성하고 그값을 2.1로 하겠다는 의미
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//선언한 플러그인 의존성들을 적용할 것인지 결정하는 코드 apply니까?
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+
+    mavenCentral()
+    //라이브러리 업로드 해주는툴인데 jcenter쓰면 maven도 같이 업뎃되고 더 쉽다고함
+}
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    //의돈성들을 선언하는 곳인데 위에 두개를 받도록 선언했다
+    //인텔리 제이는 메이븐 저장소의 데이터를 인덱싱해서 관리하기 때문에 커뮤니티 버전을
+    //사용해도 자돈완성이 된다함
+}
