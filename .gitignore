@@ -1,0 +1,6 @@
+
+.gitignore
+.gradle/6.3/vcsMetadata-1/
+.gradle/6.5/vcsMetadata-1/
+src/
+.idea
